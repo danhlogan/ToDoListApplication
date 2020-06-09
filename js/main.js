@@ -44,11 +44,15 @@ function createTask() {
 }
 function completedTask() {
     var item = new ToDoItem();
-    item.newTask = this.parentElement.innerText;
+    item.newTask = this.parentElement.innerText.split('-')[0] + ": Completed!";
     var newListItem = document.createElement("LI");
     var innerText = document.createTextNode(item.newTask);
     newListItem.appendChild(innerText);
     document.getElementById("compTaskList").appendChild(newListItem);
     var removedItem = this.parentNode;
     removedItem.parentNode.removeChild(removedItem);
+    goodJob();
+}
+function goodJob() {
+    alert("work");
 }

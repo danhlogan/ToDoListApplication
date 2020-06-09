@@ -17,13 +17,6 @@ function main(): void
     {
         createTask()
     }
-
-    // Moves from To Do to Done 
-    /*let isComplete = document.querySelectorAll("input[type='checkbox']")
-    for(let i = 0; i < isComplete.length; i++)
-        {
-            isComplete[i].onclick = completedTask
-        }*/
 }
 
 function isValid(): boolean
@@ -74,7 +67,11 @@ function completedTask()
 {
     let item = new ToDoItem();
     
-    item.newTask = this.parentElement.innerText
+    item.newTask = this.parentElement.innerText.split('-')[0] + ": Completed!"
+    
+   
+
+    //item.newTask.replace("No", "is complete!");
     
     let newListItem = document.createElement("LI");
     let innerText = document.createTextNode(item.newTask)
@@ -83,7 +80,11 @@ function completedTask()
 
     let removedItem = this.parentNode
     removedItem.parentNode.removeChild(removedItem)
+
+    goodJob()
 }
 
-
-
+function goodJob()
+{
+    alert("work")
+}
