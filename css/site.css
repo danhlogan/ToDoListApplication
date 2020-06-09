@@ -6,7 +6,7 @@ html
 div#taskList
 {
     border: 1px solid black;
-    width: 350px;
+    width: 40%;
     list-style-type: none;
     float: left;
     text-align: center;
@@ -15,7 +15,7 @@ div#taskList
 div#compTaskList
 {
     border: 1px solid black;
-    width: 350px;
+    width: 40%;
     list-style-type: none;
     float: right;
     text-align: center;

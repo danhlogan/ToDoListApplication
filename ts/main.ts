@@ -19,11 +19,11 @@ function main(): void
     }
 
     // Moves from To Do to Done 
-    let isComplete = document.querySelectorAll("input[type='checkbox']")
+    /*let isComplete = document.querySelectorAll("input[type='checkbox']")
     for(let i = 0; i < isComplete.length; i++)
         {
             isComplete[i].onclick = completedTask
-        }
+        }*/
 }
 
 function isValid(): boolean
@@ -40,21 +40,24 @@ function createTask():void
 {
     let item = new ToDoItem();
     item.newTask = document.getElementById("newTask").value;
+    
     item.dueDate = document.getElementById("dueDate").value;
     let newListItem = document.createElement("LI");
+    newListItem.setAttribute("id","notCompletedItem")
 
     if(item.dueDate == "")
     { 
-        let innerText = document.createTextNode(item.newTask + " No due date")
+        let innerText = document.createTextNode(item.newTask + " - No due date")
     }
 
     else
     {
-        let innerText = document.createTextNode(item.newTask + " Complete by " + item.dueDate)
+        let innerText = document.createTextNode(item.newTask + " - Complete by " + item.dueDate)
     }
     
     let isDone = document.createElement("INPUT");
     isDone.setAttribute("type", "checkbox");
+    isDone.setAttribute("id", "notCompletedItemBox")
     newListItem.appendChild(isDone);
     newListItem.appendChild(innerText);
     document.getElementById("taskList").appendChild(newListItem);
@@ -63,11 +66,23 @@ function createTask():void
     document.getElementById("newTaskSpan").innerText = ""
     document.getElementById("newTask").value = ""
     document.getElementById("dueDate").value = ""
+
+    isDone.onclick = completedTask
 }
 
 function completedTask()
 {
-    alert("IT WORKED ")
+    let item = new ToDoItem();
+    
+    item.newTask = this.parentElement.innerText
+    
+    let newListItem = document.createElement("LI");
+    let innerText = document.createTextNode(item.newTask)
+    newListItem.appendChild(innerText);
+    document.getElementById("compTaskList").appendChild(newListItem);
+
+    let removedItem = this.parentNode
+    removedItem.parentNode.removeChild(removedItem)
 }
 
 
