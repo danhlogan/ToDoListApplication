@@ -5,3 +5,5 @@ A to-do list will be generated from the input text. Click the checkboxes to comp
 If you complete all of your tasks, surprise! 
 
 VISIT HERE:  https://danhlogan.github.io/ToDoListApplication/.
+
+As of now, Ta-Da! Song doesn't work outside of live server (unknown issue)
