@@ -13,16 +13,15 @@ window.onload = function()
     document.onkeypress = stopRKey;
 }
 
-function main(): void
+function main():void
 {
     if(isValid())
     {
         createTask()
     }
-
 }
 
-function isValid(): boolean
+function isValid():boolean
 {
     if(document.getElementById("newTask").value == "")
     { 
@@ -67,7 +66,7 @@ function createTask():void
     isDone.onclick = completedTask
 }
 
-function completedTask()
+function completedTask():void
 {
     let item = new ToDoItem();
     
@@ -88,7 +87,7 @@ function completedTask()
     goodJob()
 }
 
-function goodJob()
+function goodJob():void
 {
     if(document.getElementById('taskList').getElementsByTagName('li').length == 0)
     {
@@ -99,13 +98,13 @@ function goodJob()
     }
 }
 
-function clearComp()
+function clearComp():void
 {
     alert("sucsess!")
 }
 
 // From: https://webcheatsheet.com/javascript/disable_enter_key.php
-function stopRKey(evt) 
+function stopRKey(evt):boolean
 {
     var evt = (evt) ? evt : ((event) ? event : null);
     var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
