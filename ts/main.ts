@@ -91,17 +91,13 @@ function goodJob():void
 {
     if(document.getElementById('taskList').getElementsByTagName('li').length == 0)
     {
-        let audio = new Audio('/audio/TaDa.mp3');
+        let audio = new Audio('audio/TaDa.mp3');
         audio.volume = 0.2
         audio.play();
         confetti.start(2500)
     }
 }
 
-function clearComp():void
-{
-    alert("sucsess!")
-}
 
 // From: https://webcheatsheet.com/javascript/disable_enter_key.php
 function stopRKey(evt):boolean
