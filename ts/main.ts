@@ -9,6 +9,8 @@ window.onload = function()
     //Add Task to To-Do List button
     let addNewTask = <HTMLElement> document.getElementById("submit")
     addNewTask.onclick = main
+    
+    document.onkeypress = stopRKey;
 }
 
 function main(): void
@@ -17,6 +19,7 @@ function main(): void
     {
         createTask()
     }
+
 }
 
 function isValid(): boolean
@@ -51,6 +54,7 @@ function createTask():void
     let isDone = document.createElement("INPUT");
     isDone.setAttribute("type", "checkbox");
     isDone.setAttribute("id", "notCompletedItemBox")
+    isDone.setAttribute("title","Complete To-Do")
     newListItem.appendChild(isDone);
     newListItem.appendChild(innerText);
     document.getElementById("taskList").appendChild(newListItem);
@@ -86,5 +90,26 @@ function completedTask()
 
 function goodJob()
 {
-    alert("work")
+    if(document.getElementById('taskList').getElementsByTagName('li').length == 0)
+    {
+        let audio = new Audio('/audio/TaDa.mp3');
+        audio.volume = 0.2
+        audio.play();
+        confetti.start(2500)
+    }
 }
+
+function clearComp()
+{
+    alert("sucsess!")
+}
+
+// From: https://webcheatsheet.com/javascript/disable_enter_key.php
+function stopRKey(evt) 
+{
+    var evt = (evt) ? evt : ((event) ? event : null);
+    var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+    if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+}
+  
+  

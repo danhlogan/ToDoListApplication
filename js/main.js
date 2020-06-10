@@ -6,6 +6,7 @@ var ToDoItem = (function () {
 window.onload = function () {
     var addNewTask = document.getElementById("submit");
     addNewTask.onclick = main;
+    document.onkeypress = stopRKey;
 };
 function main() {
     if (isValid()) {
@@ -34,6 +35,7 @@ function createTask() {
     var isDone = document.createElement("INPUT");
     isDone.setAttribute("type", "checkbox");
     isDone.setAttribute("id", "notCompletedItemBox");
+    isDone.setAttribute("title", "Complete To-Do");
     newListItem.appendChild(isDone);
     newListItem.appendChild(innerText);
     document.getElementById("taskList").appendChild(newListItem);
@@ -54,5 +56,20 @@ function completedTask() {
     goodJob();
 }
 function goodJob() {
-    alert("work");
+    if (document.getElementById('taskList').getElementsByTagName('li').length == 0) {
+        var audio = new Audio('/audio/TaDa.mp3');
+        audio.volume = 0.2;
+        audio.play();
+        confetti.start(2500);
+    }
+}
+function clearComp() {
+    alert("sucsess!");
+}
+function stopRKey(evt) {
+    var evt = (evt) ? evt : ((event) ? event : null);
+    var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+    if ((evt.keyCode == 13) && (node.type == "text")) {
+        return false;
+    }
 }

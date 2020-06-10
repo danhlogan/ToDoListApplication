@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List Application</title>
     <link rel="stylesheet" href="/css/site.css">
+    
 </head>
 <body>
     <h1>To-Do List</h1>
@@ -12,17 +13,19 @@
     <form>
         <label for="newTask">Add new task:</label> 
         <input type="text" id="newTask">
-        <span id = "newTaskSpan"></span>
+        <span id = "newTaskSpan">*</span>
         <br><br>
 
 
         <label for="dueDate">Complete task by:</label> 
         <input type="date" id="dueDate">
         <br><br>
+        
 
-        <button type="button" id="submit">Add Task to To-Do List</button>
+        <button type="button" id="submit">Add Task to To-Do List</button>     
         <br><br>
-
+        
+        
         <div id="taskList">
             <h2>To do List</h2>
             <ul id="taskList">
@@ -34,8 +37,10 @@
             <ul id="compTaskList">
             </ul>
         </div>
+        
     </form>
-    
+       
     <script src ="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
 </body>
 </html>
