@@ -57,7 +57,7 @@ function completedTask() {
 }
 function goodJob() {
     if (document.getElementById('taskList').getElementsByTagName('li').length == 0) {
-        var audio = new Audio('audio/TaDa.mp3');
+        var audio = new Audio('/audio/TaDa.mp3');
         audio.volume = 0.2;
         audio.play();
         confetti.start(2500);
