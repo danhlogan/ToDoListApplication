@@ -72,10 +72,6 @@ function completedTask():void
     
     item.newTask = this.parentElement.innerText.split('-')[0] + ": Completed!"
     
-   
-
-    //item.newTask.replace("No", "is complete!");
-    
     let newListItem = document.createElement("LI");
     let innerText = document.createTextNode(item.newTask)
     newListItem.appendChild(innerText);
@@ -97,7 +93,6 @@ function goodJob():void
         confetti.start(2500)
     }
 }
-
 
 // From: https://webcheatsheet.com/javascript/disable_enter_key.php
 function stopRKey(evt):boolean
